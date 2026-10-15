@@ -309,17 +309,27 @@
       gap: 16px;
     }
 
-    .hero-card {
+    /* 英雄區圖片展示卡 */
+    .hero-image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-image-card {
+      position: relative;
       background: rgba(255, 255, 255, 0.98);
-      color: var(--text-main);
-      padding: 32px;
+      padding: 16px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-lg);
       border-top: 6px solid var(--accent-gold);
-      position: relative;
+      max-width: 432px;
+      width: 100%;
     }
 
-    .hero-card-badge {
+    .hero-image-badge {
       position: absolute;
       top: -14px;
       right: 24px;
@@ -330,32 +340,47 @@
       font-size: 0.8rem;
       font-weight: 700;
       box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3);
+      z-index: 2;
     }
 
-    .hero-card h3 {
-      font-size: 1.35rem;
-      color: var(--primary-brown);
-      margin-bottom: 12px;
+    .hero-photo {
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: var(--shadow-sm);
+      background-color: #FAF6F0;
     }
 
-    .hero-card-list {
-      margin: 16px 0 24px;
+    @media (max-width: 480px) {
+      .hero-photo {
+        height: auto;
+      }
+    }
+
+    .hero-image-caption {
+      margin-top: 14px;
+      padding-top: 12px;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed var(--border-color);
       gap: 12px;
     }
 
-    .hero-card-list li {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px dashed var(--border-color);
-      padding-bottom: 8px;
-      font-size: 0.95rem;
+    .hero-image-caption h4 {
+      font-size: 1.05rem;
+      color: var(--primary-brown);
+      margin-bottom: 2px;
     }
 
-    .hero-card-list .price {
-      font-weight: 700;
-      color: var(--accent-red);
+    .hero-image-caption p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
 
     /* 通用區塊設定 */
@@ -1133,31 +1158,19 @@
         </div>
       </div>
 
-      <div class="hero-card">
-        <span class="hero-card-badge">今日熱銷 NO.1</span>
-        <h3>學生&上班族 人氣狂推榜</h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted);">現點現滷，大火熱滾、中藥甘甜不口渴</p>
-        
-        <ul class="hero-card-list">
-          <li>
-            <span>學生霸氣飽足套餐 (麵+肉+4配料)</span>
-            <span class="price">NT$ 79</span>
-          </li>
-          <li>
-            <span>小資元氣舒活餐 (牛腱肉+滿滿時蔬)</span>
-            <span class="price">NT$ 99</span>
-          </li>
-          <li>
-            <span>入味黑豆干 + 爆汁百頁豆腐</span>
-            <span class="price">NT$ 30</span>
-          </li>
-          <li>
-            <span>招牌鴨血糕 + 王子麵</span>
-            <span class="price">NT$ 35</span>
-          </li>
-        </ul>
-
-        <a href="#order" class="btn btn-brown" style="width: 100%;">點我直接打包帶走 →</a>
+      <!-- 英雄區圖片展示區域 -->
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <span class="hero-image-badge">今日熱銷 NO.1</span>
+          <img src="images/hero.jpg" alt="超會滷人氣招牌美味" class="hero-photo" width="400" height="300">
+          <div class="hero-image-caption">
+            <div>
+              <h4>超會滷｜人氣狂推榜</h4>
+              <p>現點現滷，大火熱滾、中藥甘甜不口渴</p>
+            </div>
+            <a href="#order" class="btn btn-brown" style="padding: 6px 16px; font-size: 0.85rem; border-radius: 20px; white-space: nowrap;">立即點餐 →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
